@@ -2,27 +2,27 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2025/06/04 22:37:18.000.648,=C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2025/06/04 22:38:12.000.498,C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\ProjetoWK\UPrincipal.dfm</Transaction>
-    <Transaction>2025/06/04 22:38:12.000.498,C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\ProjetoWK\UPrincipal.pas</Transaction>
-    <Transaction>2025/06/04 22:38:41.000.405,C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\ProjetoWK\projectwk.dproj</Transaction>
+    <Transaction>2025/06/04 22:38:12.000.498,C:\ProjetoWK\UPrincipal.dfm=C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/06/04 22:38:12.000.498,C:\ProjetoWK\UPrincipal.pas=C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/06/04 22:38:41.000.405,C:\ProjetoWK\projectwk.dproj=C:\Users\adeci\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2025/06/04 22:38:55.000.098,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/04 22:39:14.000.755,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\server\UConexao.pas</Transaction>
+    <Transaction>2025/06/04 22:39:14.000.755,C:\ProjetoWK\server\UConexao.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 14:57:16.000.666,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 14:57:51.000.960,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\classes\UCliente.pas</Transaction>
+    <Transaction>2025/06/05 14:57:51.000.960,C:\ProjetoWK\classes\UCliente.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 14:58:26.000.377,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 14:58:47.000.148,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\classes\UProduto.pas</Transaction>
+    <Transaction>2025/06/05 14:58:47.000.148,C:\ProjetoWK\classes\UProduto.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 14:59:12.000.692,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 14:59:33.000.452,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\classes\UItemPedido.pas</Transaction>
+    <Transaction>2025/06/05 14:59:33.000.452,C:\ProjetoWK\classes\UItemPedido.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 15:00:04.000.363,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 15:00:32.000.569,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\classes\UPedido.pas</Transaction>
+    <Transaction>2025/06/05 15:00:32.000.569,C:\ProjetoWK\classes\UPedido.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 15:04:01.000.232,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 15:04:24.000.695,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\server\UClienteDAO.pas</Transaction>
+    <Transaction>2025/06/05 15:04:24.000.695,C:\ProjetoWK\server\UClienteDAO.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 15:10:51.000.627,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 15:11:17.000.088,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\server\UProdutoDAO.pas</Transaction>
+    <Transaction>2025/06/05 15:11:17.000.088,C:\ProjetoWK\server\UProdutoDAO.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 15:20:28.000.655,=C:\ProjetoWK\Unit1.pas</Transaction>
-    <Transaction>2025/06/05 15:20:50.000.783,C:\ProjetoWK\Unit1.pas=C:\ProjetoWK\server\UPedidoDAO.pas</Transaction>
+    <Transaction>2025/06/05 15:20:50.000.783,C:\ProjetoWK\server\UPedidoDAO.pas=C:\ProjetoWK\Unit1.pas</Transaction>
     <Transaction>2025/06/05 15:29:57.000.050,=C:\ProjetoWK\Unit2.pas</Transaction>
-    <Transaction>2025/06/05 15:33:17.000.356,C:\ProjetoWK\Unit2.pas=C:\ProjetoWK\FrmPedido.pas</Transaction>
-    <Transaction>2025/06/05 15:33:17.000.356,C:\ProjetoWK\Unit2.dfm=C:\ProjetoWK\FrmPedido.dfm</Transaction>
+    <Transaction>2025/06/05 15:33:17.000.356,C:\ProjetoWK\FrmPedido.dfm=C:\ProjetoWK\Unit2.dfm</Transaction>
+    <Transaction>2025/06/05 15:33:17.000.356,C:\ProjetoWK\FrmPedido.pas=C:\ProjetoWK\Unit2.pas</Transaction>
   </Transactions>
 </BorlandProject>

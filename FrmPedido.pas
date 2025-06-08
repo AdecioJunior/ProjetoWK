@@ -3,8 +3,10 @@ unit FrmPedido;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes, System.Generics.Collections, Vcl.Controls, Vcl.Forms,
-  Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, VCL.Graphics, Vcl.DBGrids, UPedido, UProduto, UProdutoDAO, UPedidoDAO,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes,
+  System.Generics.Collections, Vcl.Controls, Vcl.Forms,
+  Vcl.Dialogs, Vcl.StdCtrls, Vcl.Grids, Vcl.Graphics, Vcl.DBGrids, UPedido,
+  UProduto, UProdutoDAO, UPedidoDAO,
   UItemPedido, FireDAC.Phys.MySQLDef,
   FireDAC.Stan.Intf, FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
@@ -85,6 +87,13 @@ procedure TFormPedido.grdItensKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   case Key of
+    VK_UP:
+      if grdItens.Row > 1 then
+        grdItens.Row := grdItens.Row - 1;
+
+    VK_DOWN:
+      if grdItens.Row < grdItens.RowCount - 1 then
+        grdItens.Row := grdItens.Row + 1;
     VK_RETURN:
       begin
         EditarItemSelecionado;
@@ -92,7 +101,8 @@ begin
 
     VK_DELETE:
       begin
-        if MessageDlg('Deseja realmente apagar este item do pedido?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+        if MessageDlg('Deseja realmente apagar este item do pedido?',
+          mtConfirmation, [mbYes, mbNo], 0) = mrYes then
         begin
           FPedido.Itens.Delete(grdItens.Row - 1);
           AtualizarGrid;
@@ -102,7 +112,7 @@ begin
       end;
   end;
 
-  Key:= 0;
+  Key := 0;
 end;
 
 procedure TFormPedido.BloqueiaSelecionarCliente(Bloqueia: Boolean);
@@ -116,7 +126,8 @@ begin
     cmbCliente.Style := csOwnerDrawFixed;
     cmbCliente.Color := cl3DLight;
     cmbCliente.TabStop := False;
-  end else
+  end
+  else
   begin
     edtCodigoCliente.ReadOnly := False;
     edtCodigoCliente.Color := clWindow;
@@ -159,7 +170,8 @@ begin
 
       ShowMessage('Item atualizado.');
       FEditandoIndice := -1;
-    end else
+    end
+    else
     begin
       Item := TItemPedido.Create;
       Item.CodigoProduto := Produto.Codigo;
@@ -214,7 +226,8 @@ begin
 
     for Produto in Produtos do
     begin
-      cmbProdutos.Items.Add(Format('%d - %s', [Produto.Codigo, Produto.Descricao]));
+      cmbProdutos.Items.Add(Format('%d - %s', [Produto.Codigo,
+        Produto.Descricao]));
       FListaProdutos.Add(Produto.Codigo, Produto.Descricao);
     end;
   finally
@@ -224,10 +237,10 @@ end;
 
 procedure TFormPedido.ClearHead;
 begin
-    edtCodigoProduto.Clear;
-    cmbProdutos.ItemIndex:= -1;
-    edtQuantidade.Clear;
-    edtValorUnitario.Clear;
+  edtCodigoProduto.Clear;
+  cmbProdutos.ItemIndex := -1;
+  edtQuantidade.Clear;
+  edtValorUnitario.Clear;
 end;
 
 procedure TFormPedido.cmbClienteChange(Sender: TObject);
@@ -258,7 +271,7 @@ end;
 
 function TFormPedido.DadosPreenchidos: Boolean;
 begin
-  Result:= True;
+  Result := True;
 
   // Validação dos campos obrigatórios
 
@@ -266,7 +279,7 @@ begin
   begin
     ShowMessage('Informe o código do cliente.');
     edtCodigoCliente.SetFocus;
-    Result:= False;
+    Result := False;
     Exit;
   end;
 
@@ -274,7 +287,7 @@ begin
   begin
     ShowMessage('Informe o código do produto.');
     edtCodigoProduto.SetFocus;
-    Result:= False;
+    Result := False;
     Exit;
   end;
 
@@ -282,7 +295,7 @@ begin
   begin
     ShowMessage('Informe a quantidade.');
     edtQuantidade.SetFocus;
-    Result:= False;
+    Result := False;
     Exit;
   end;
 
@@ -290,7 +303,7 @@ begin
   begin
     ShowMessage('Informe o valor unitário.');
     edtValorUnitario.SetFocus;
-    Result:= False;
+    Result := False;
     Exit;
   end;
 end;
@@ -299,7 +312,8 @@ procedure TFormPedido.EditarItemSelecionado;
 var
   Item: TItemPedido;
 begin
-  if grdItens.Row <= 0 then Exit;
+  if grdItens.Row <= 0 then
+    Exit;
 
   FEditandoIndice := grdItens.Row - 1;
   Item := FPedido.Itens[FEditandoIndice];
@@ -338,7 +352,8 @@ var
   Codigo: Integer;
   i: Integer;
 begin
-  if not TryStrToInt(edtCodigoCliente.Text, Codigo) then Exit;
+  if not TryStrToInt(edtCodigoCliente.Text, Codigo) then
+    Exit;
 
   for i := 0 to cmbCliente.Items.Count - 1 do
   begin
@@ -355,7 +370,8 @@ var
   Codigo: Integer;
   i: Integer;
 begin
-  if not TryStrToInt(edtCodigoProduto.Text, Codigo) then Exit;
+  if not TryStrToInt(edtCodigoProduto.Text, Codigo) then
+    Exit;
 
   for i := 0 to cmbProdutos.Items.Count - 1 do
   begin
@@ -413,7 +429,8 @@ var
   NumPedidoStr: string;
   NumeroPedido: Integer;
 begin
-  NumPedidoStr := InputBox('Cancelar Pedido', 'Informe o número do pedido a cancelar:', '');
+  NumPedidoStr := InputBox('Cancelar Pedido',
+    'Informe o número do pedido a cancelar:', '');
 
   if Trim(NumPedidoStr) = '' then
     Exit;
@@ -425,8 +442,8 @@ begin
     Exit;
   end;
 
-  if MessageDlg('Deseja realmente cancelar o pedido nº ' + IntToStr(NumeroPedido) + '?',
-    mtConfirmation, [mbYes, mbNo], 0) = mrNo then
+  if MessageDlg('Deseja realmente cancelar o pedido nº ' +
+    IntToStr(NumeroPedido) + '?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then
     Exit;
 
   try
@@ -476,7 +493,8 @@ begin
     FPedido.CodigoCliente := StrToInt(edtCodigoCliente.Text);
     TPedidoDAO.Gravar(FPedido);
     ShowMessage('Pedido gravado com sucesso!');
-  end else
+  end
+  else
   begin
     ShowMessage('Não existem dados a serem gravados!');
   end;
@@ -485,4 +503,3 @@ begin
 end;
 
 end.
-
