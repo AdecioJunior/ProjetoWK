@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS clientes (
 
 -- Tabela de produtos
 CREATE TABLE IF NOT EXISTS produtos (
-  codigo INT PRIMARY KEY,
+  codigo INT AUTO_INCREMENT PRIMARY KEY,
   descricao VARCHAR(100) NOT NULL,
   preco_venda DECIMAL(10,2) NOT NULL
 );
@@ -38,10 +38,55 @@ CREATE TABLE IF NOT EXISTS pedido_itens (
   FOREIGN KEY (codigo_produto) REFERENCES produtos(codigo)
 );
 
--- Índices adicionais (usando IF NOT EXISTS apenas onde suportado)
--- Infelizmente, MySQL não permite CREATE INDEX IF NOT EXISTS nativamente.
--- Para evitar erro em execuções repetidas, você pode antes remover manualmente ou testar via script.
+-- Cria alguns indices uteis para seleção e agrupamento.
 
+SET @exists := (
+  SELECT COUNT(*) FROM information_schema.statistics
+  WHERE table_schema = 'wk_pedidos'
+    AND table_name = 'pedido_itens'
+    AND index_name = 'idx_item_pedido'
+);
+
+SET @sql := IF(@exists = 0,
+  'CREATE INDEX idx_item_pedido ON pedido_itens (numero_pedido, codigo_produto);',
+  'SELECT "idx_item_pedido já existe";'
+);
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+SET @exists := (
+  SELECT COUNT(*) FROM information_schema.statistics
+  WHERE table_schema = 'wk_pedidos'
+    AND table_name = 'pedido_itens'
+    AND index_name = 'idx_por_produto'
+);
+
+SET @sql := IF(@exists = 0,
+  'CREATE INDEX idx_por_produto ON pedido_itens (codigo_produto);',
+  'SELECT "idx_por_produto já existe";'
+);
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+
+SET @exists := (
+  SELECT COUNT(*) FROM information_schema.statistics
+  WHERE table_schema = 'wk_pedidos'
+    AND table_name = 'pedido_itens'
+    AND index_name = 'idx_valor_unitario'
+);
+
+SET @sql := IF(@exists = 0,
+  'CREATE INDEX idx_valor_unitario ON pedido_itens (valor_unitario);',
+  'SELECT "idx_valor_unitario já existe";'
+);
+
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 -- Usar banco
 USE wk_pedidos;
 
