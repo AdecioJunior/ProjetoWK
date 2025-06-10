@@ -126,21 +126,19 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="UPrincipal.pas">
+        <DCCReference Include="views\UPrincipal.pas">
             <Form>Form1</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="server\UConexao.pas"/>
-        <DCCReference Include="classes\UCliente.pas"/>
-        <DCCReference Include="classes\UProduto.pas"/>
-        <DCCReference Include="classes\UItemPedido.pas"/>
-        <DCCReference Include="classes\UPedido.pas"/>
-        <DCCReference Include="server\UClienteDAO.pas"/>
-        <DCCReference Include="server\UProdutoDAO.pas"/>
-        <DCCReference Include="server\UPedidoDAO.pas"/>
-        <DCCReference Include="FrmPedido.pas">
+        <DCCReference Include="controlers\UConexao.pas"/>
+        <DCCReference Include="models\UCliente.pas"/>
+        <DCCReference Include="models\UProduto.pas"/>
+        <DCCReference Include="models\UItemPedido.pas"/>
+        <DCCReference Include="models\UPedido.pas"/>
+        <DCCReference Include="controlers\UClienteDAO.pas"/>
+        <DCCReference Include="controlers\UProdutoDAO.pas"/>
+        <DCCReference Include="controlers\UPedidoDAO.pas"/>
+        <DCCReference Include="views\FrmPedido.pas">
             <Form>Form2</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>

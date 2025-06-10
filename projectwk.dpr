@@ -2,16 +2,16 @@ program projectwk;
 
 uses
   Vcl.Forms,
-  UPrincipal in 'UPrincipal.pas' {Form1},
-  UConexao in 'server\UConexao.pas',
-  UCliente in 'classes\UCliente.pas',
-  UProduto in 'classes\UProduto.pas',
-  UItemPedido in 'classes\UItemPedido.pas',
-  UPedido in 'classes\UPedido.pas',
-  UClienteDAO in 'server\UClienteDAO.pas',
-  UProdutoDAO in 'server\UProdutoDAO.pas',
-  UPedidoDAO in 'server\UPedidoDAO.pas',
-  FrmPedido in 'FrmPedido.pas' {Form2};
+  UPrincipal in 'views\UPrincipal.pas',
+  UConexao in 'controlers\UConexao.pas',
+  UCliente in 'models\UCliente.pas',
+  UProduto in 'models\UProduto.pas',
+  UItemPedido in 'models\UItemPedido.pas',
+  UPedido in 'models\UPedido.pas',
+  UClienteDAO in 'controlers\UClienteDAO.pas',
+  UProdutoDAO in 'controlers\UProdutoDAO.pas',
+  UPedidoDAO in 'controlers\UPedidoDAO.pas',
+  FrmPedido in 'views\FrmPedido.pas';
 
 {$R *.res}
 
