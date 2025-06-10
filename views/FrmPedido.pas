@@ -42,6 +42,7 @@ type
     procedure edtCodigoClienteChange(Sender: TObject);
     procedure btnCarregarPedidoClick(Sender: TObject);
     procedure btnCancelarPedidoClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     FPedido: TPedido;
     FEditandoIndice: Integer;
@@ -81,6 +82,11 @@ begin
   CarregaListaClientes;
   CarregaListaProdutos;
   edtCodigoClienteChange(Self);
+end;
+
+procedure TFormPedido.FormDestroy(Sender: TObject);
+begin
+  Freeandnil(FPedido);
 end;
 
 procedure TFormPedido.grdItensKeyDown(Sender: TObject; var Key: Word;
@@ -196,16 +202,13 @@ procedure TFormPedido.CarregaListaClientes;
 var
   Clientes: TObjectList<TCliente>;
   Cliente: TCliente;
-  FListaClientes: TDictionary<Integer, string>;
 begin
-  FListaClientes := TDictionary<Integer, string>.Create;
 
   Clientes := TClienteDAO.Listar;
   try
     for Cliente in Clientes do
     begin
       cmbCliente.Items.Add(Format('%d - %s', [Cliente.Codigo, Cliente.Nome]));
-      FListaClientes.Add(Cliente.Codigo, Cliente.Nome);
     end;
   finally
     Clientes.Free;
@@ -214,12 +217,9 @@ end;
 
 procedure TFormPedido.CarregaListaProdutos;
 var
-  FListaProdutos: TDictionary<Integer, string>;
   Produtos: TObjectList<TProduto>;
   Produto: TProduto;
 begin
-  FListaProdutos := TDictionary<Integer, string>.Create;
-
   Produtos := TProdutoDAO.Listar;
   try
     cmbProdutos.Items.Clear;
@@ -228,7 +228,6 @@ begin
     begin
       cmbProdutos.Items.Add(Format('%d - %s', [Produto.Codigo,
         Produto.Descricao]));
-      FListaProdutos.Add(Produto.Codigo, Produto.Descricao);
     end;
   finally
     Produtos.Free;

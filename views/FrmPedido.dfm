@@ -12,6 +12,7 @@ object FormPedido: TFormPedido
   Font.Style = []
   KeyPreview = True
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 13
   object lblCodigoCliente: TLabel
     Left = 25
